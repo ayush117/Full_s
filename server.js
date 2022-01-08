@@ -10,10 +10,10 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //connect to the database
-ATLAS_URI='mongodb+srv://AyushTrivedi:Ayush%4012345@cluster0.vdj5g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+// ATLAS_URI='mongodb+srv://AyushTrivedi:Ayush%4012345@cluster0.vdj5g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 
-mongoose.connect(ATLAS_URI, { useNewUrlParser: true })
+mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
@@ -28,11 +28,11 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, '/client')));
+// app.use(express.static(path.join(__dirname, '/footwear')));
 
-app.get('*', (req,res)=>{
-  res.sendFile(path.join('__dirname','/client/build','index.html'));
-})
+// app.get('*', (req,res)=>{
+//   res.sendFile(path.join(__dirname,'/footwear/build','index.html'));
+// })
 
 app.use('/api', routes);
 
