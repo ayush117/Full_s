@@ -28,13 +28,11 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-// app.use(express.static(path.join(__dirname, '/footwear')));
+app.get('https://mysterious-ridge-76787.herokuapp.com/todos', (req,res)=>{
+  res.json("HELOO");
+})
 
-// app.get('*', (req,res)=>{
-//   res.sendFile(path.join(__dirname,'/footwear/build','index.html'));
-// })
-
-app.use('https://mysterious-ridge-76787.herokuapp.com/api', routes);
+// app.use('https://mysterious-ridge-76787.herokuapp.com/api', routes);
 
 app.use((err, req, res, next) => {
   console.log(err);
