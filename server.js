@@ -28,9 +28,14 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.get('https://mysterious-ridge-76787.herokuapp.com/todos', (req,res)=>{
+app.get('/todos', (req,res)=>{
   res.json("HELOO");
-  res.end();
+  // res.end();
+})
+
+
+app.get('', (req,res)=>{
+  res.json("empty");
 })
 
 // app.use('https://mysterious-ridge-76787.herokuapp.com/api', routes);
