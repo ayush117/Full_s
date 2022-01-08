@@ -3,7 +3,7 @@ const router = express.Router();
 const Todo = require('../db/db');
 
 router.get('/todos', (req, res, next) => {
-
+  res.json("working");
   //this will return all the data, exposing only the id and action field to the client
   Todo.find({}, 'action')
     .then(data => res.json("get working data"))
