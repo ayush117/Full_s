@@ -30,6 +30,7 @@ app.use(bodyParser.json());
 
 app.get('https://mysterious-ridge-76787.herokuapp.com/todos', (req,res)=>{
   res.json("HELOO");
+  res.end();
 })
 
 // app.use('https://mysterious-ridge-76787.herokuapp.com/api', routes);
