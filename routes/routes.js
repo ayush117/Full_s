@@ -3,17 +3,17 @@ const router = express.Router();
 const Todo = require('../db/db');
 
 router.get('/todos', (req, res, next) => {
-  res.json("working");
-  //this will return all the data, exposing only the id and action field to the client
   Todo.find({}, 'action')
-    .then(data => res.json("get working data"))
+    .then(data => res.json(data))
     .catch(next)
 });
 
 router.post('/todos', (req, res, next) => {
+  console.log(req.body.action);
+  console.log(req.body);
   if(req.body.action){
     Todo.create(req.body)
-      .then(data => res.json(" working data"))
+      .then(data => res.json(data))
       .catch(next)
   }else {
     res.json({
@@ -24,7 +24,7 @@ router.post('/todos', (req, res, next) => {
 
 router.delete('/todos/:id', (req, res, next) => {
   Todo.findOneAndDelete({"_id": req.params.id})
-    .then(data => res.json(" working data"))
+    .then(data => res.json(data))
     .catch(next)
 })
 
